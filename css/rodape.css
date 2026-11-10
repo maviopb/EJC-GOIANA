@@ -1,0 +1,512 @@
+
+/* ==========================================
+   RODAPÉ PREMIUM - EJC GOIANA
+   IDENTIDADE VISUAL: CÉU E FÉ
+========================================== */
+
+/* ESTRUTURA PRINCIPAL */
+
+.rodape-ejc {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 90px 6% 25px;
+
+    background: linear-gradient(
+        145deg,
+        #345675 0%,
+        #294760 55%,
+        #203B53 100%
+    );
+
+    color: #FFFFFF;
+}
+
+/* BRILHO DECORATIVO */
+
+.rodape-brilho {
+    position: absolute;
+    z-index: -1;
+    top: -260px;
+    right: -180px;
+
+    width: 750px;
+    height: 750px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(139, 185, 213, 0.18),
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+/* CONTEÚDO EM TRÊS COLUNAS */
+
+.rodape-conteudo {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr 1fr;
+    gap: 70px;
+
+    max-width: 1250px;
+    margin: 0 auto 75px;
+}
+
+/* ==========================================
+   COLUNA 01 - IDENTIDADE
+========================================== */
+
+.rodape-marca {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    width: fit-content;
+    margin-bottom: 25px;
+
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.rodape-logo {
+    width: 78px;
+    height: 78px;
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 8px 18px rgba(0, 0, 0, 0.18)
+    );
+}
+
+.rodape-nome {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.rodape-nome strong {
+    color: #FFFFFF;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.rodape-nome span {
+    color: #E5C78F;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.rodape-descricao {
+    max-width: 350px;
+    margin: 0 0 22px;
+
+    color: #DFEAF3;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.rodape-local {
+    display: inline-block;
+
+    color: #E5C78F;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* REDES SOCIAIS */
+
+.rodape-redes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.rodape-rede {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid rgba(229, 199, 143, 0.4);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.07);
+    color: #E5C78F;
+
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.rodape-rede svg {
+    width: 21px;
+    height: 21px;
+}
+
+.rodape-rede:hover {
+    background: rgba(229, 199, 143, 0.16);
+    border-color: #E5C78F;
+    transform: translateY(-5px);
+}
+
+.rodape-instagram-texto {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 15px;
+
+    color: #DFEAF3;
+    font-size: 13px;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.rodape-instagram-texto span {
+    color: #E5C78F;
+    font-size: 17px;
+}
+
+.rodape-instagram-texto:hover {
+    color: #E5C78F;
+}
+
+/* ==========================================
+   TÍTULOS DAS COLUNAS
+========================================== */
+
+.rodape-navegacao h3,
+.rodape-conexoes h3 {
+    margin: 8px 0 28px;
+
+    color: #E5C78F;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   COLUNA 02 - NAVEGAÇÃO
+========================================== */
+
+.rodape-navegacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.rodape-navegacao h3 {
+    margin-bottom: 12px;
+}
+
+.rodape-navegacao a {
+    color: #DFEAF3;
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.rodape-navegacao a:hover {
+    color: #E5C78F;
+    transform: translateX(5px);
+}
+
+/* ==========================================
+   COLUNA 03 - CONEXÕES
+========================================== */
+
+.rodape-conexoes > p {
+    max-width: 310px;
+    margin: 0 0 26px;
+
+    color: #DFEAF3;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+/* BOTÕES */
+
+.rodape-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 290px;
+    min-height: 52px;
+
+    padding: 13px 18px;
+    margin-bottom: 12px;
+
+    border: 1px solid rgba(229, 199, 143, 0.5);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.07);
+    color: #FFFFFF;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.rodape-botao svg {
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+
+    color: #E5C78F;
+}
+
+.rodape-botao > span:last-child {
+    margin-left: auto;
+    color: #E5C78F;
+    font-size: 18px;
+}
+
+.rodape-botao:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: #E5C78F;
+    transform: translateY(-4px);
+}
+
+/* SPOTIFY */
+
+.rodape-botao-spotify {
+    background: #D4AC67;
+    border-color: #D4AC67;
+    color: #29445D;
+}
+
+.rodape-botao-spotify:hover {
+    background: #E5C78F;
+}
+
+.rodape-nota {
+    font-size: 23px;
+    line-height: 1;
+}
+
+.rodape-botao-spotify > span:last-child {
+    color: #29445D;
+}
+
+/* ==========================================
+   DIVISÓRIA
+========================================== */
+
+.rodape-divisor {
+    max-width: 1250px;
+    height: 1px;
+    margin: 0 auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(229, 199, 143, 0.4),
+        transparent
+    );
+}
+
+/* ==========================================
+   MENSAGEM FINAL
+========================================== */
+
+.rodape-mensagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 55px 0;
+
+    text-align: center;
+}
+
+.rodape-estrela {
+    color: #D4AC67;
+    font-size: 17px;
+}
+
+.rodape-mensagem p {
+    margin: 0;
+
+    color: #E1EDF5;
+    font-size: clamp(17px, 2vw, 22px);
+    line-height: 1.7;
+}
+
+.rodape-mensagem strong {
+    display: block;
+
+    color: #E5C78F;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* ==========================================
+   BASE DO RODAPÉ
+========================================== */
+
+.rodape-base {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    max-width: 1250px;
+    margin: 0 auto;
+    padding-top: 26px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.rodape-base > span {
+    color: #C3D5E2;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.rodape-topo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #E5C78F;
+    font-size: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: transform 0.3s ease;
+}
+
+.rodape-topo span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid rgba(229, 199, 143, 0.5);
+    border-radius: 50%;
+
+    font-size: 18px;
+}
+
+.rodape-topo:hover {
+    transform: translateY(-4px);
+}
+
+/* FOCO ACESSÍVEL */
+
+.rodape-ejc a:focus-visible {
+    outline: 2px solid #E5C78F;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .rodape-conteudo {
+        gap: 40px;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+    }
+
+    .rodape-identidade {
+        grid-column: 1 / -1;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .rodape-ejc {
+        padding: 65px 24px 25px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+        gap: 38px;
+
+        margin-bottom: 55px;
+    }
+
+    .rodape-identidade {
+        grid-column: auto;
+    }
+
+    .rodape-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .rodape-nome strong {
+        font-size: 19px;
+    }
+
+    .rodape-botao {
+        max-width: 100%;
+    }
+
+    .rodape-mensagem {
+        gap: 12px;
+        padding: 42px 0;
+    }
+
+    .rodape-estrela {
+        font-size: 12px;
+    }
+
+    .rodape-base {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .rodape-ejc a {
+        transition: none;
+    }
+
+}

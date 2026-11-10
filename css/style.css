@@ -1,0 +1,2254 @@
+/* =========================================
+   EJC GOIANA - BLOCO 01
+   GLASSMORPHISM EXPERIENCE
+========================================= */
+
+/* CONFIGURAÇÕES GERAIS */
+
+:root {
+    --branco: #ffffff;
+    --vidro: rgba(255, 255, 255, 0.10);
+    --borda-vidro: rgba(255, 255, 255, 0.25);
+    --texto-suave: rgba(255, 255, 255, 0.78);
+    --fundo-escuro: #080e18;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fundo-escuro);
+    color: var(--branco);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 5px;
+}
+
+
+/* =========================================
+   MENU DE VIDRO
+========================================= */
+
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 22px 5%;
+}
+
+.menu-vidro {
+    max-width: 1250px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 25px;
+
+    background: rgba(255, 255, 255, 0.09);
+
+    border: 1px solid var(--borda-vidro);
+    border-radius: 22px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+
+    transition: background 0.4s ease;
+}
+
+.menu-vidro:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo strong {
+    font-weight: 300;
+}
+
+.logo-simbolo {
+    font-size: 27px;
+    font-weight: 300;
+}
+
+.links-menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.links-menu a {
+    font-size: 13px;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.links-menu a:hover {
+    opacity: 0.65;
+}
+
+.link-destaque {
+    padding: 12px 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--borda-vidro);
+    border-radius: 30px;
+}
+
+.botao-menu {
+    display: none;
+}
+
+
+/* =========================================
+   HERO - VÍDEO TELA CHEIA
+========================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.video-fundo {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: -4;
+}
+
+/* Escurecimento suave para destacar as frases */
+
+.camada-video {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 9, 20, 0.48),
+            rgba(3, 9, 20, 0.16),
+            rgba(3, 9, 20, 0.40)
+        ),
+        linear-gradient(
+            to top,
+            rgba(3, 9, 20, 0.70),
+            transparent 50%,
+            rgba(3, 9, 20, 0.30)
+        );
+
+    z-index: -3;
+}
+
+
+/* =========================================
+   BRILHOS AMBIENTAIS
+========================================= */
+
+.brilho {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+    filter: blur(100px);
+
+    opacity: 0.15;
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+.brilho-um {
+    top: 10%;
+    left: -180px;
+    background: #83aaff;
+
+    animation: moverBrilho 12s ease-in-out infinite alternate;
+}
+
+.brilho-dois {
+    bottom: 0;
+    right: -180px;
+    background: #ffffff;
+
+    animation: moverBrilho 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes moverBrilho {
+    from {
+        transform: translateY(-30px);
+    }
+
+    to {
+        transform: translateY(40px);
+    }
+}
+
+
+/* =========================================
+   CONTEÚDO DO HERO
+========================================= */
+
+.conteudo-hero {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1050px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    padding-top: 60px;
+}
+
+.identificacao {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.09);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.ponto-luz {
+    width: 7px;
+    height: 7px;
+
+    background: white;
+    border-radius: 50%;
+
+    box-shadow: 0 0 12px white;
+
+    animation: pulsar 2s infinite;
+}
+
+@keyframes pulsar {
+    50% {
+        opacity: 0.35;
+    }
+}
+
+
+/* =========================================
+   FRASES CINEMATOGRÁFICAS
+========================================= */
+
+.area-frases {
+    width: 100%;
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.frase-principal {
+    max-width: 950px;
+
+    font-size: clamp(36px, 5.8vw, 82px);
+    font-weight: 300;
+
+    line-height: 1.12;
+    letter-spacing: -2px;
+
+    text-shadow: 0 5px 35px rgba(0, 0, 0, 0.30);
+}
+
+.frase-secundaria {
+    margin-top: 25px;
+
+    font-size: clamp(15px, 1.5vw, 20px);
+    font-weight: 300;
+
+    letter-spacing: 1px;
+    line-height: 1.6;
+
+    color: var(--texto-suave);
+}
+
+/* Estado inicial das frases */
+
+.frase-principal,
+.frase-secundaria {
+    opacity: 0;
+    transform: translateY(25px);
+    filter: blur(8px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        filter 1s ease;
+}
+
+/* Estado visível */
+
+.frase-principal.visivel,
+.frase-secundaria.visivel {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
+/* =========================================
+   BOTÃO DE VIDRO
+========================================= */
+
+.botao-vidro {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    padding: 17px 28px;
+    margin-top: 30px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    font-size: 13px;
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.botao-vidro:hover {
+    background: rgba(255, 255, 255, 0.25);
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   INDICADOR DE SCROLL
+========================================= */
+
+.indicador-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    z-index: 5;
+}
+
+.mouse-scroll {
+    width: 24px;
+    height: 38px;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 8px;
+}
+
+.roda-scroll {
+    width: 3px;
+    height: 7px;
+
+    background: white;
+    border-radius: 10px;
+
+    animation: animarScroll 2s infinite;
+}
+
+@keyframes animarScroll {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   CONTADOR DE FRASES
+========================================= */
+
+.contador-frases {
+    position: absolute;
+
+    right: 5%;
+    bottom: 45px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.linha-contador {
+    width: 45px;
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================
+   SEGUNDO BLOCO PROVISÓRIO
+========================================= */
+
+.secao-provisoria {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #233b5d,
+            #080e18 70%
+        );
+}
+
+.cartao-provisorio {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 60px 35px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.etiqueta {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #b9c9de;
+}
+
+.cartao-provisorio h2 {
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 300;
+
+    margin: 25px 0;
+}
+
+.cartao-provisorio p {
+    color: var(--texto-suave);
+    line-height: 1.8;
+}
+
+.em-breve {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 12px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+
+    font-size: 12px;
+    color: var(--texto-suave);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        padding: 15px;
+    }
+
+    .menu-vidro {
+        padding: 13px 18px;
+        border-radius: 18px;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .botao-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+
+        width: 38px;
+        height: 38px;
+
+        background: transparent;
+        border: none;
+
+        cursor: pointer;
+    }
+
+    .botao-menu span {
+        width: 24px;
+        height: 2px;
+
+        background: white;
+        border-radius: 3px;
+    }
+
+    .links-menu {
+        display: none;
+
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 15px;
+        padding: 25px;
+
+        background: rgba(12, 20, 35, 0.90);
+
+        border: 1px solid var(--borda-vidro);
+        border-radius: 20px;
+
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+
+    .links-menu.aberto {
+        display: flex;
+    }
+
+    .links-menu a {
+        padding: 10px;
+    }
+
+    .conteudo-hero {
+        padding-top: 40px;
+    }
+
+    .identificacao {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .area-frases {
+        min-height: 220px;
+    }
+
+    .frase-principal {
+        letter-spacing: -1px;
+    }
+
+    .frase-secundaria {
+        margin-top: 20px;
+    }
+
+    .contador-frases {
+        right: 20px;
+        bottom: 30px;
+        font-size: 10px;
+    }
+
+    .linha-contador {
+        width: 20px;
+    }
+
+    .indicador-scroll {
+        bottom: 25px;
+        font-size: 8px;
+    }
+
+    .cartao-provisorio {
+        padding: 45px 25px;
+    }
+
+}
+
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+
+/* =========================================
+   NOVO MENU GLASSMORPHISM
+   COMPACTO - CANTO SUPERIOR DIREITO
+========================================= */
+
+.cabecalho {
+    position: fixed;
+    top: 24px;
+    right: 30px;
+    left: auto;
+
+    width: auto;
+    padding: 0;
+
+    z-index: 1000;
+}
+
+.menu-vidro {
+    position: relative;
+
+    width: auto;
+    min-width: 190px;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    padding: 13px 16px 13px 22px;
+
+    background: rgba(18, 30, 49, 0.38);
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 50px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
+
+.logo {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+}
+
+.botao-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    width: 38px;
+    height: 38px;
+
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+}
+
+.botao-menu:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.botao-menu span {
+    display: block;
+    width: 17px;
+    height: 2px;
+
+    background: white;
+    border-radius: 5px;
+}
+
+/* PAINEL EXPANSÍVEL */
+
+.links-menu {
+    display: none;
+
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    left: auto;
+
+    width: 240px;
+    padding: 20px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+
+    background: rgba(15, 26, 45, 0.86);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 22px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+}
+
+.links-menu.aberto {
+    display: flex;
+}
+
+.links-menu a {
+    display: block;
+    padding: 12px;
+    font-size: 13px;
+}
+
+.link-destaque {
+    text-align: center;
+}
+
+/* RESTAURA O VÍDEO ORIGINAL */
+
+.video-fundo {
+    inset: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: none;
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        top: 15px;
+        right: 15px;
+        left: auto;
+        width: auto;
+        padding: 0;
+    }
+
+    .menu-vidro {
+        min-width: 165px;
+        padding: 10px 12px 10px 16px;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+
+    .botao-menu {
+        width: 34px;
+        height: 34px;
+    }
+
+    .links-menu {
+        width: min(240px, calc(100vw - 30px));
+        left: auto;
+        right: 0;
+    }
+}
+
+/* ==========================================
+   BLOCO 02 - EJC GOIANA
+   GLASSMORPHISM PREMIUM
+========================================== */
+
+.sobre-ejc {
+    position: relative;
+    min-height: 100vh;
+    padding: 110px 6% 120px;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            #263e5c 0%,
+            #111d30 40%,
+            #080e18 90%
+        );
+}
+
+.sobre-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* LUZES DE FUNDO */
+
+.sobre-luz {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.luz-azul {
+    background: #7da9ed;
+    top: 5%;
+    left: -230px;
+}
+
+.luz-dourada {
+    background: #e5c68b;
+    bottom: 10%;
+    right: -230px;
+}
+
+/* ==========================================
+   LOGO ORIGINAL DO EJC
+========================================== */
+
+.logo-ejc-bloco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 35px;
+}
+
+.logo-ejc-imagem {
+    display: block;
+    width: min(280px, 65vw);
+    height: auto;
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 15px 30px rgba(0,0,0,0.30)
+    );
+
+    animation: flutuarLogo 6s ease-in-out infinite;
+}
+
+@keyframes flutuarLogo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* ==========================================
+   TÍTULO E INTRODUÇÃO
+========================================== */
+
+.sobre-intro {
+    text-align: center;
+}
+
+.sobre-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.07);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    color: #c5d3e5;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.sobre-ponto {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    background: #e7d2a5;
+    box-shadow: 0 0 12px #e7d2a5;
+}
+
+.sobre-intro h2 {
+    margin-top: 35px;
+
+    font-size: clamp(48px, 7vw, 100px);
+    font-weight: 300;
+    letter-spacing: -3px;
+}
+
+.sobre-intro h2 span {
+    color: #e7d2a5;
+}
+
+.sobre-frase {
+    max-width: 650px;
+    margin: 25px auto 0;
+
+    color: rgba(255,255,255,0.72);
+    font-size: clamp(17px, 2vw, 23px);
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   APRESENTAÇÃO
+========================================== */
+
+.sobre-apresentacao {
+    max-width: 800px;
+    margin: 75px auto 85px;
+    text-align: center;
+}
+
+.sobre-linha {
+    width: 1px;
+    height: 70px;
+    margin: 0 auto 35px;
+
+    background: linear-gradient(
+        transparent,
+        #e7d2a5
+    );
+}
+
+.sobre-apresentacao p {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.9;
+    font-weight: 300;
+
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 22px;
+}
+
+.sobre-apresentacao strong {
+    color: white;
+    font-weight: 500;
+}
+
+/* ==========================================
+   CARDS INTERATIVOS
+========================================== */
+
+.sobre-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    perspective: 1200px;
+}
+
+.sobre-card {
+    position: relative;
+    min-height: 335px;
+    padding: 28px 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    overflow: hidden;
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.065);
+    border: 1px solid rgba(255,255,255,0.17);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.12),
+        inset 0 1px rgba(255,255,255,0.10);
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.25s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.sobre-card:hover {
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,0.25);
+}
+
+/* REFLEXO QUE SEGUE O MOUSE */
+
+.card-brilho {
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        250px circle at
+        var(--mouse-x, 50%)
+        var(--mouse-y, 50%),
+        rgba(255,255,255,0.20),
+        transparent 75%
+    );
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.sobre-card:hover .card-brilho {
+    opacity: 1;
+}
+
+/* CONTEÚDO DOS CARDS */
+
+.card-numero {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.45);
+}
+
+.card-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+    margin-top: 40px;
+
+    border-radius: 18px;
+
+    background: rgba(231,210,165,0.09);
+    border: 1px solid rgba(231,210,165,0.20);
+
+    color: #e7d2a5;
+}
+
+.card-icone svg {
+    width: 28px;
+    height: 28px;
+}
+
+.sobre-card h3 {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.sobre-card p {
+    margin-top: 12px;
+
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.card-detalhe {
+    margin-top: auto;
+    padding-top: 25px;
+
+    color: #c8b58c;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   ENCERRAMENTO DO BLOCO
+========================================== */
+
+.sobre-final {
+    max-width: 800px;
+    margin: 125px auto 0;
+    text-align: center;
+}
+
+.sobre-divisor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    margin-bottom: 40px;
+    color: #e7d2a5;
+}
+
+.sobre-divisor::before,
+.sobre-divisor::after {
+    content: "";
+    width: 75px;
+    height: 1px;
+    background: rgba(231,210,165,0.35);
+}
+
+.sobre-final p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+}
+
+.sobre-final p strong {
+    display: block;
+    color: white;
+    font-weight: 400;
+}
+
+.sobre-final h3 {
+    margin: 30px 0;
+
+    font-size: clamp(30px, 4.5vw, 60px);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.sobre-botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+
+    margin-top: 15px;
+    padding: 17px 28px;
+
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(20px);
+
+    font-size: 13px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.sobre-botao:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.20);
+}
+
+/* ==========================================
+   ANIMAÇÃO AO ROLAR
+========================================== */
+
+.sobre-ejc .revelar {
+    opacity: 0;
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.sobre-ejc .revelar.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   BLOCO 03 TEMPORÁRIO
+========================================== */
+
+.proximo-capitulo {
+    min-height: 75vh;
+    padding: 100px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    background: #080e18;
+}
+
+.proximo-capitulo span {
+    color: #e7d2a5;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.proximo-capitulo h2 {
+    margin: 25px 0;
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 300;
+}
+
+.proximo-capitulo p {
+    color: rgba(255,255,255,0.6);
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 1024px) {
+    .sobre-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+
+    .sobre-ejc {
+        padding: 100px 20px 80px;
+    }
+
+    .logo-ejc-imagem {
+        width: min(220px, 65vw);
+    }
+
+    .sobre-intro h2 {
+        letter-spacing: -1px;
+    }
+
+    .sobre-apresentacao {
+        margin: 55px auto;
+    }
+
+    .sobre-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .sobre-card {
+        min-height: 260px;
+    }
+
+    .card-icone {
+        margin-top: 25px;
+    }
+
+    .sobre-final {
+        margin-top: 90px;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .logo-ejc-imagem {
+        animation: none;
+    }
+
+    .sobre-ejc .revelar {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .sobre-card {
+        transition: none;
+    }
+}
+/* Cards sem numeração */
+
+.card-icone {
+    margin-top: 15px;
+}
+
+
+/* ==========================================
+   BLOCO 03 - SANTÍSSIMO 3D
+========================================== */
+
+.santissimo-secao {
+    position: relative;
+    min-height: 100vh;
+    padding: 110px 20px 90px;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 50%,
+            #30435d 0%,
+            #15243a 42%,
+            #080e18 90%
+        );
+
+    color: white;
+    text-align: center;
+}
+
+.santissimo-luz {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+
+    width: 650px;
+    height: 650px;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 215, 130, 0.17),
+        transparent 70%
+    );
+
+    filter: blur(45px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* CABEÇALHO */
+
+.santissimo-cabecalho {
+    position: relative;
+    z-index: 2;
+}
+
+.santissimo-etiqueta {
+    display: inline-block;
+
+    padding: 12px 20px;
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(20px);
+
+    color: #e7d2a5;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.santissimo-cabecalho h2 {
+    margin: 30px 0 15px;
+
+    font-size: clamp(38px, 6vw, 78px);
+    font-weight: 300;
+    letter-spacing: -2px;
+}
+
+.santissimo-cabecalho h2 span {
+    color: #e7d2a5;
+}
+
+.santissimo-cabecalho p {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+}
+
+/* ÁREA DO MODELO */
+
+.santissimo-experiencia {
+    position: relative;
+
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto 0;
+}
+
+.santissimo-canvas {
+    width: 100%;
+    height: clamp(430px, 60vw, 680px);
+
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+}
+
+.santissimo-canvas:active {
+    cursor: grabbing;
+}
+
+.santissimo-canvas canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* INSTRUÇÕES */
+
+.santissimo-instrucoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    color: rgba(255,255,255,0.7);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.icone-girar {
+    font-size: 26px;
+    color: #e7d2a5;
+}
+
+/* BOTÃO DE RESET */
+
+.santissimo-reset {
+    margin-top: 22px;
+    padding: 14px 25px;
+
+    color: white;
+    font-size: 12px;
+
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 40px;
+
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.santissimo-reset:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-3px);
+}
+
+.santissimo-reset:focus-visible {
+    outline: 2px solid #e7d2a5;
+    outline-offset: 4px;
+}
+
+.santissimo-erro {
+    margin-top: 20px;
+    color: #ffd1d1;
+    font-size: 14px;
+}
+
+.santissimo-erro[hidden] {
+    display: none;
+}
+
+/* RODAPÉ */
+
+.santissimo-rodape {
+    margin-top: 65px;
+}
+
+.santissimo-rodape p {
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 300;
+}
+
+.santissimo-rodape span {
+    display: block;
+    margin-top: 22px;
+
+    color: #d2bc90;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .santissimo-secao {
+        padding: 95px 15px 75px;
+    }
+
+    .santissimo-canvas {
+        height: 480px;
+    }
+
+    .santissimo-cabecalho h2 {
+        letter-spacing: -1px;
+    }
+
+    .santissimo-cabecalho p {
+        font-size: 15px;
+    }
+
+    .santissimo-rodape {
+        margin-top: 45px;
+    }
+}
+
+/* SANTÍSSIMO PREMIUM 2.0 */
+
+.santissimo-canvas {
+    height: clamp(500px, 65vw, 760px);
+}
+
+.santissimo-experiencia {
+    max-width: 1250px;
+}
+
+@media (max-width: 768px) {
+    .santissimo-canvas {
+        height: 520px;
+    }
+}
+
+/* ==========================================
+   SANTÍSSIMO - DESTAQUE PREMIUM
+========================================== */
+
+.santissimo-canvas {
+    height: clamp(580px, 70vw, 820px);
+}
+
+.santissimo-experiencia {
+    max-width: 1300px;
+}
+
+@media (max-width: 768px) {
+    .santissimo-canvas {
+        height: 550px;
+    }
+}
+
+/* ==========================================
+   EJC GOIANA - CINCO PILARES PREMIUM
+========================================== */
+
+/* Área que contém o Santíssimo e os pilares */
+
+.santissimo-experiencia {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Santíssimo continua interativo */
+
+.santissimo-canvas {
+    position: relative;
+    z-index: 1;
+}
+
+.santissimo-canvas canvas {
+    touch-action: none;
+}
+
+/* ==========================================
+   ÓRBITA DOS PILARES
+========================================== */
+
+.pilares-orbita {
+    position: absolute;
+    inset: 0 0 95px;
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   BOTÕES DOS PILARES
+========================================== */
+
+.pilar-item {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px 20px;
+
+    border: 1px solid rgba(255, 215, 135, 0.3);
+    border-radius: 100px;
+
+    background: rgba(13, 28, 48, 0.48);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #fff4d9;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Entrada cinematográfica */
+
+.pilares-orbita.visivel .pilar-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ponto luminoso */
+
+.pilar-ponto {
+    position: relative;
+
+    width: 9px;
+    height: 9px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #f7d28b;
+
+    box-shadow:
+        0 0 10px #ffd88c,
+        0 0 25px rgba(255, 198, 91, 0.5);
+}
+
+/* Halo pulsante */
+
+.pilar-ponto::after {
+    content: "";
+
+    position: absolute;
+    inset: -6px;
+
+    border: 1px solid rgba(255, 215, 140, 0.6);
+    border-radius: 50%;
+
+    animation: pulsoPilar 2.8s infinite;
+}
+
+@keyframes pulsoPilar {
+
+    0% {
+        transform: scale(0.6);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* Interação */
+
+.pilar-item:hover,
+.pilar-item.ativo {
+    background: rgba(174, 122, 42, 0.22);
+
+    border-color: rgba(255, 215, 140, 0.85);
+
+    box-shadow:
+        0 0 25px rgba(255, 192, 90, 0.16),
+        inset 0 0 20px rgba(255, 220, 140, 0.06);
+}
+
+.pilar-item:focus-visible {
+    outline: 2px solid #ffe1a3;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   POSICIONAMENTO DOS CINCO PILARES
+========================================== */
+
+.pilar-alegria {
+    top: 16%;
+    left: 7%;
+    transition-delay: 0.1s;
+}
+
+.pilar-oracao {
+    top: 16%;
+    right: 7%;
+    transition-delay: 0.2s;
+}
+
+.pilar-simplicidade {
+    top: 44%;
+    left: 2%;
+    transition-delay: 0.3s;
+}
+
+.pilar-doacao {
+    top: 44%;
+    right: 2%;
+    transition-delay: 0.4s;
+}
+
+.pilar-pobreza {
+    bottom: 8%;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    transition-delay: 0.5s;
+}
+
+.pilares-orbita.visivel .pilar-pobreza {
+    transform: translate(-50%, 0);
+}
+
+/* ==========================================
+   LINHAS LUMINOSAS DOS PILARES
+========================================== */
+
+.pilar-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: clamp(20px, 5vw, 85px);
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(255, 215, 135, 0.6),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+.pilar-alegria::before,
+.pilar-simplicidade::before {
+    left: 100%;
+}
+
+.pilar-oracao::before,
+.pilar-doacao::before {
+    right: 100%;
+    transform: rotate(180deg);
+}
+
+.pilar-pobreza::before {
+    display: none;
+}
+
+/* ==========================================
+   PAINEL DE VIDRO INTERATIVO
+========================================== */
+
+.pilar-painel {
+    position: absolute;
+
+    left: 50%;
+    bottom: 105px;
+
+    width: min(430px, calc(100% - 32px));
+
+    padding: 34px 32px;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(21, 40, 61, 0.96),
+            rgba(9, 20, 36, 0.96)
+        );
+
+    border: 1px solid rgba(255, 215, 140, 0.3);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(231, 178, 85, 0.09);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    color: white;
+}
+
+.pilar-painel[hidden] {
+    display: none !important;
+}
+
+.pilar-painel.pilar-entrando {
+    animation: painelAparecer 0.45s ease both;
+}
+
+@keyframes painelAparecer {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, 18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+}
+
+/* Botão fechar */
+
+.pilar-fechar {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #fff;
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+/* Textos do painel */
+
+.pilar-painel-etiqueta {
+    display: block;
+
+    color: #e8bb75;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+
+    margin-bottom: 14px;
+}
+
+.pilar-painel h3 {
+    color: #ffe3a7;
+
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 500;
+
+    margin: 0 0 15px;
+}
+
+.pilar-painel p {
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+.pilar-painel-detalhe {
+    display: block;
+
+    margin-top: 24px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: rgba(255, 220, 160, 0.65);
+
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .pilares-orbita {
+        inset: 0 0 90px;
+    }
+
+    .pilar-item {
+        padding: 10px 12px;
+        font-size: 10px;
+        letter-spacing: 0.3px;
+        gap: 7px;
+    }
+
+    .pilar-ponto {
+        width: 7px;
+        height: 7px;
+    }
+
+    .pilar-alegria {
+        top: 13%;
+        left: 2%;
+    }
+
+    .pilar-oracao {
+        top: 13%;
+        right: 2%;
+    }
+
+    .pilar-simplicidade {
+        top: 43%;
+        left: 1%;
+    }
+
+    .pilar-doacao {
+        top: 43%;
+        right: 1%;
+    }
+
+    .pilar-pobreza {
+        bottom: 2%;
+    }
+
+    .pilar-item::before {
+        width: 16px;
+    }
+
+    .pilar-painel {
+        bottom: 85px;
+        padding: 28px 24px;
+    }
+
+    .pilar-painel p {
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pilar-item,
+    .pilar-painel {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .pilar-ponto::after {
+        animation: none;
+    }
+}
+
+/* ==========================================
+   AJUSTE DE POSIÇÃO - PILAR POBREZA
+========================================== */
+
+/* Desktop */
+.pilar-pobreza {
+    top: 27%;
+    right: 7%;
+    bottom: auto;
+    left: auto;
+    transform: translateY(20px);
+}
+
+.pilares-orbita.visivel .pilar-pobreza {
+    transform: translateY(0);
+}
+
+/* Linha luminosa voltada para o Santíssimo */
+.pilar-pobreza::before {
+    display: block;
+    right: 100%;
+    left: auto;
+    transform: rotate(180deg);
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    .pilar-pobreza {
+        top: 24%;
+        right: 2%;
+        bottom: auto;
+        left: auto;
+    }
+
+}
+
+/* ==========================================
+   BLOCO 03 - AJUSTE FINAL DOS PILARES
+========================================== */
+
+/* Área principal */
+.santissimo-experiencia {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Espaço para mostrar todo o Santíssimo */
+.santissimo-canvas {
+    width: 100%;
+    height: 850px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Camada dos pilares */
+.pilares-orbita {
+    position: absolute;
+    inset: 0 0 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Padrão dos botões */
+.pilar-item {
+    position: absolute;
+    pointer-events: auto;
+}
+
+/* ==========================================
+   LADO ESQUERDO
+========================================== */
+
+/* Alegria */
+.pilar-alegria {
+    top: 24%;
+    left: 5%;
+    right: auto;
+    bottom: auto;
+}
+
+/* Simplicidade */
+.pilar-simplicidade {
+    top: 53%;
+    left: 5%;
+    right: auto;
+    bottom: auto;
+}
+
+/* ==========================================
+   LADO DIREITO
+========================================== */
+
+/* Oração */
+.pilar-oracao {
+    top: 18%;
+    right: 5%;
+    left: auto;
+    bottom: auto;
+}
+
+/* Pobreza */
+.pilar-pobreza {
+    top: 37%;
+    right: 5%;
+    left: auto;
+    bottom: auto;
+    transform: translateY(20px);
+}
+
+/* Doação */
+.pilar-doacao {
+    top: 56%;
+    right: 5%;
+    left: auto;
+    bottom: auto;
+}
+
+/* Entrada animada do pilar Pobreza */
+.pilares-orbita.visivel .pilar-pobreza {
+    transform: translateY(0);
+}
+
+/* Linhas luminosas */
+.pilar-alegria::before,
+.pilar-simplicidade::before {
+    display: block;
+    left: 100%;
+    right: auto;
+    transform: none;
+}
+
+.pilar-oracao::before,
+.pilar-pobreza::before,
+.pilar-doacao::before {
+    display: block;
+    right: 100%;
+    left: auto;
+    transform: rotate(180deg);
+}
+
+/* ==========================================
+   RESPONSIVIDADE - CELULAR
+========================================== */
+
+@media (max-width: 768px) {
+
+    .santissimo-canvas {
+        height: 580px;
+    }
+
+    .pilares-orbita {
+        inset: 0 0 90px;
+    }
+
+    .pilar-item {
+        font-size: 10px;
+        padding: 9px 11px;
+    }
+
+    .pilar-alegria {
+        top: 23%;
+        left: 1%;
+    }
+
+    .pilar-simplicidade {
+        top: 56%;
+        left: 1%;
+    }
+
+    .pilar-oracao {
+        top: 16%;
+        right: 1%;
+    }
+
+    .pilar-pobreza {
+        top: 36%;
+        right: 1%;
+    }
+
+    .pilar-doacao {
+        top: 56%;
+        right: 1%;
+    }
+
+    .pilar-item::before {
+        width: 12px;
+    }
+}

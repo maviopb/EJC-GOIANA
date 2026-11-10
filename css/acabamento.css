@@ -1,0 +1,63 @@
+
+/* ==========================================
+   EJC GOIANA - ACABAMENTO FINAL
+========================================== */
+
+/* Rolagem e navegação */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+/* Evita que os títulos fiquem escondidos
+   atrás do menu flutuante */
+
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* Elementos preparados para surgir */
+
+.ejc-entrada {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.85s ease,
+        transform 0.85s cubic-bezier(
+            0.22, 1, 0.36, 1
+        );
+}
+
+/* Estado visível */
+
+.ejc-entrada.ejc-visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pequena diferença no tempo de entrada */
+
+.ejc-entrada:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.ejc-entrada:nth-child(3) {
+    transition-delay: 0.18s;
+}
+
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .ejc-entrada {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}

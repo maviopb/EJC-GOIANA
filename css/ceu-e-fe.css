@@ -1,0 +1,906 @@
+
+/* ==========================================
+   EJC GOIANA - IDENTIDADE CÉU E FÉ
+   CSS COMPLETO
+========================================== */
+
+:root {
+    --ceu-branco: #F4F9FC;
+    --ceu-nevoa: #D9EAF4;
+    --ceu-azul: #8BB9D5;
+    --ceu-ouro: #D4AC67;
+    --ceu-profundo: #345675;
+
+    --ceu-texto: #29445D;
+    --ceu-suave: #58758B;
+    --ceu-ouro-texto: #9A7136;
+
+    --ceu-borda: rgba(104, 151, 183, 0.29);
+    --ceu-vidro: rgba(255, 255, 255, 0.79);
+
+    --ceu-sombra:
+        0 18px 50px rgba(52, 86, 117, 0.12);
+
+    --branco: #FFFFFF;
+    --vidro: rgba(255, 255, 255, 0.76);
+    --borda-vidro: rgba(139, 185, 213, 0.48);
+    --texto-suave: #58758B;
+    --fundo-escuro: #F4F9FC;
+}
+
+/* ==========================================
+   CONFIGURAÇÕES GERAIS
+========================================== */
+
+body {
+    background: var(--ceu-branco);
+    color: var(--ceu-texto);
+}
+
+::selection {
+    background: var(--ceu-azul);
+    color: #18364D;
+}
+
+:focus-visible {
+    outline-color: var(--ceu-ouro) !important;
+}
+
+/* ==========================================
+   BLOCO 01 - ABERTURA
+========================================== */
+
+.hero {
+    color: #FFFFFF;
+    background: #B7D3E5;
+}
+
+.camada-video {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22, 48, 75, 0.48),
+            rgba(35, 70, 98, 0.14) 52%,
+            rgba(22, 48, 75, 0.38)
+        ),
+        linear-gradient(
+            to top,
+            rgba(24, 49, 72, 0.61),
+            transparent 54%,
+            rgba(34, 65, 91, 0.19)
+        );
+}
+
+.brilho-um {
+    background: #C1E4FF;
+    opacity: 0.25;
+}
+
+.brilho-dois {
+    background: #FFF0CC;
+    opacity: 0.20;
+}
+
+.identificacao,
+.botao-vidro {
+    background: rgba(255, 255, 255, 0.17);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #FFFFFF;
+}
+
+.botao-vidro:hover {
+    background: rgba(255, 255, 255, 0.29);
+}
+
+.frase-principal {
+    color: #FFFFFF;
+    text-shadow: 0 5px 30px rgba(18, 39, 60, 0.45);
+}
+
+.frase-secundaria {
+    color: rgba(255, 255, 255, 0.93);
+}
+
+.ponto-luz,
+.roda-scroll {
+    background: #F5D99C;
+    box-shadow: 0 0 14px rgba(255, 222, 153, 0.8);
+}
+
+.indicador-scroll,
+.contador-frases {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.mouse-scroll {
+    border-color: rgba(255, 255, 255, 0.75);
+}
+
+.linha-contador {
+    background: rgba(255, 255, 255, 0.65);
+}
+
+/* ==========================================
+   MENU GLASSMORPHISM
+========================================== */
+
+.menu-vidro {
+    background: rgba(248, 252, 255, 0.88);
+    border-color: rgba(255, 255, 255, 0.83);
+    color: var(--ceu-profundo);
+
+    box-shadow:
+        0 12px 36px rgba(34, 69, 98, 0.16);
+}
+
+.menu-vidro:hover {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.logo,
+.logo strong,
+.logo-simbolo {
+    color: var(--ceu-profundo);
+}
+
+.botao-menu {
+    background: rgba(217, 234, 244, 0.77);
+    border-color: var(--ceu-borda);
+}
+
+.botao-menu:hover {
+    background: #C9E2F1;
+}
+
+.botao-menu span {
+    background: var(--ceu-profundo);
+}
+
+.links-menu {
+    background: rgba(250, 253, 255, 0.97);
+    border-color: var(--ceu-borda);
+    box-shadow: var(--ceu-sombra);
+    color: var(--ceu-profundo);
+}
+
+.links-menu a:hover {
+    color: var(--ceu-ouro-texto);
+}
+
+.link-destaque {
+    background: #D9EAF4;
+    border-color: var(--ceu-borda);
+    color: var(--ceu-profundo);
+}
+
+/* ==========================================
+   BLOCO 02 - O QUE É O EJC?
+========================================== */
+
+.sobre-ejc {
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            #FFFFFF 0%,
+            #EDF6FB 48%,
+            #D9EAF4 100%
+        );
+
+    color: var(--ceu-texto);
+}
+
+.sobre-luz {
+    opacity: 0.25;
+}
+
+.luz-azul {
+    background: #9DCBE8;
+}
+
+.luz-dourada {
+    background: #EBD2A1;
+}
+
+.logo-ejc-imagem {
+    filter:
+        drop-shadow(
+            0 12px 25px rgba(52, 86, 117, 0.16)
+        );
+}
+
+.sobre-etiqueta,
+.santissimo-etiqueta {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: var(--ceu-borda);
+    color: var(--ceu-ouro-texto);
+}
+
+.sobre-ponto {
+    background: var(--ceu-ouro);
+    box-shadow: 0 0 12px rgba(212, 172, 103, 0.7);
+}
+
+.sobre-intro h2,
+.sobre-card h3,
+.sobre-final h3 {
+    color: var(--ceu-profundo);
+}
+
+.sobre-intro h2 span {
+    color: var(--ceu-ouro-texto);
+}
+
+.sobre-frase,
+.sobre-apresentacao p,
+.sobre-card p,
+.sobre-final p {
+    color: var(--ceu-suave);
+}
+
+.sobre-apresentacao strong,
+.sobre-final p strong {
+    color: var(--ceu-profundo);
+}
+
+.sobre-linha {
+    background:
+        linear-gradient(
+            transparent,
+            var(--ceu-ouro)
+        );
+}
+
+/* Cards interativos */
+
+.sobre-card {
+    background: rgba(255, 255, 255, 0.73);
+    border-color: rgba(139, 185, 213, 0.45);
+
+    box-shadow:
+        0 15px 40px rgba(52, 86, 117, 0.09),
+        inset 0 1px rgba(255, 255, 255, 0.85);
+}
+
+.sobre-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(212, 172, 103, 0.65);
+
+    box-shadow:
+        0 22px 54px rgba(52, 86, 117, 0.15);
+}
+
+.card-brilho {
+    background:
+        radial-gradient(
+            250px circle at
+            var(--mouse-x, 50%)
+            var(--mouse-y, 50%),
+            rgba(255, 241, 211, 0.68),
+            transparent 75%
+        );
+}
+
+.card-numero {
+    color: var(--ceu-suave);
+}
+
+.card-icone {
+    background: rgba(212, 172, 103, 0.13);
+    border-color: rgba(212, 172, 103, 0.35);
+    color: var(--ceu-ouro-texto);
+}
+
+.card-detalhe,
+.sobre-divisor {
+    color: var(--ceu-ouro-texto);
+}
+
+.sobre-divisor::before,
+.sobre-divisor::after {
+    background: rgba(154, 113, 54, 0.3);
+}
+
+.sobre-botao {
+    background: var(--ceu-profundo);
+    border-color: var(--ceu-profundo);
+    color: #FFFFFF;
+
+    box-shadow:
+        0 12px 30px rgba(52, 86, 117, 0.16);
+}
+
+.sobre-botao:hover {
+    background: #426C91;
+}
+
+/* ==========================================
+   BLOCO 03 - SANTÍSSIMO
+========================================== */
+
+.santissimo-secao {
+    background:
+        radial-gradient(
+            ellipse at 50% 38%,
+            rgba(255, 255, 255, 0.98),
+            rgba(244, 249, 252, 0.55) 48%,
+            transparent 78%
+        ),
+        linear-gradient(
+            180deg,
+            #D9EAF4 0%,
+            #F4F9FC 52%,
+            #E4F1F8 100%
+        );
+
+    color: var(--ceu-texto);
+}
+
+.santissimo-luz {
+    background:
+        radial-gradient(
+            circle,
+            rgba(247, 213, 147, 0.31),
+            rgba(255, 248, 230, 0.11) 45%,
+            transparent 72%
+        );
+}
+
+.santissimo-cabecalho h2,
+.santissimo-rodape p {
+    color: var(--ceu-profundo);
+}
+
+.santissimo-cabecalho h2 span {
+    color: var(--ceu-ouro-texto);
+}
+
+.santissimo-cabecalho p,
+.santissimo-instrucoes {
+    color: var(--ceu-suave);
+}
+
+.icone-girar,
+.santissimo-rodape span {
+    color: var(--ceu-ouro-texto);
+}
+
+/* Botão de reiniciar Santíssimo */
+
+.santissimo-reset {
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--ceu-profundo);
+    border-color: var(--ceu-borda);
+
+    box-shadow:
+        0 8px 22px rgba(52, 86, 117, 0.08);
+}
+
+.santissimo-reset:hover {
+    background: #FFFFFF;
+    border-color: var(--ceu-ouro);
+}
+
+.santissimo-erro {
+    color: #A13F45;
+}
+
+/* ==========================================
+   CINCO PILARES
+========================================== */
+
+.pilar-item {
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--ceu-profundo);
+    border-color: rgba(139, 185, 213, 0.58);
+
+    box-shadow:
+        0 8px 26px rgba(52, 86, 117, 0.12);
+}
+
+.pilar-item:hover,
+.pilar-item.ativo {
+    background: #FFFFFF;
+    border-color: var(--ceu-ouro);
+
+    box-shadow:
+        0 10px 30px rgba(154, 113, 54, 0.16);
+}
+
+.pilar-ponto {
+    background: var(--ceu-ouro);
+
+    box-shadow:
+        0 0 10px rgba(212, 172, 103, 0.75),
+        0 0 25px rgba(212, 172, 103, 0.35);
+}
+
+.pilar-ponto::after {
+    border-color: rgba(212, 172, 103, 0.64);
+}
+
+.pilar-item::before {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(154, 113, 54, 0.55),
+            transparent
+        );
+}
+
+.pilar-item:focus-visible {
+    outline-color: var(--ceu-ouro);
+}
+
+/* ==========================================
+   PAINEL DOS PILARES
+========================================== */
+
+.pilar-painel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(239, 247, 252, 0.97)
+        );
+
+    border-color: rgba(212, 172, 103, 0.5);
+    color: var(--ceu-texto);
+
+    box-shadow:
+        0 25px 70px rgba(52, 86, 117, 0.22);
+}
+
+.pilar-painel h3 {
+    color: var(--ceu-profundo);
+}
+
+.pilar-painel p {
+    color: var(--ceu-suave);
+}
+
+.pilar-painel-etiqueta,
+.pilar-painel-detalhe {
+    color: var(--ceu-ouro-texto);
+}
+
+.pilar-painel-detalhe {
+    border-top-color: var(--ceu-borda);
+}
+
+/* ==========================================
+   CORREÇÃO DO X - BOTÃO FECHAR
+========================================== */
+
+.pilar-fechar {
+    position: absolute;
+
+    top: 14px;
+    right: 18px;
+
+    /* Centralização */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    border: 1px solid var(--ceu-borda);
+    border-radius: 50%;
+
+    background: #D9EAF4;
+    color: var(--ceu-profundo);
+
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.pilar-fechar:hover {
+    background: #C5DEED;
+    transform: rotate(90deg);
+}
+
+.pilar-fechar:focus-visible {
+    outline: 2px solid var(--ceu-ouro);
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   PRÓXIMOS CAPÍTULOS
+========================================== */
+
+.secao-provisoria,
+.proximo-capitulo {
+    background:
+        linear-gradient(
+            180deg,
+            #E6F2F9,
+            #F4F9FC
+        );
+
+    color: var(--ceu-profundo);
+}
+
+.cartao-provisorio {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: var(--ceu-borda);
+    box-shadow: var(--ceu-sombra);
+}
+
+.etiqueta,
+.proximo-capitulo span {
+    color: var(--ceu-ouro-texto);
+}
+
+.cartao-provisorio p,
+.em-breve,
+.proximo-capitulo p {
+    color: var(--ceu-suave);
+}
+
+.em-breve {
+    border-color: var(--ceu-borda);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================
+   NUVENS DESATIVADAS
+========================================== */
+
+.santissimo-nuvens,
+.travessia-nuvens {
+    display: none !important;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .links-menu {
+        background: rgba(250, 253, 255, 0.98);
+        color: var(--ceu-profundo);
+    }
+
+    .menu-vidro {
+        background: rgba(250, 253, 255, 0.92);
+    }
+
+    .pilar-item {
+        background: rgba(255, 255, 255, 0.93);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pilar-fechar {
+        transition: none;
+    }
+
+    .pilar-fechar:hover {
+        transform: none;
+    }
+}
+
+/* ==========================================
+   EJC GOIANA - MENU ATUALIZADO
+========================================== */
+
+.links-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 20px;
+
+    background: rgba(250, 253, 255, 0.97);
+    border: 1px solid rgba(139, 185, 213, 0.35);
+    border-radius: 24px;
+
+    box-shadow: 0 20px 55px rgba(52, 86, 117, 0.16);
+    backdrop-filter: blur(20px);
+}
+
+.links-menu a {
+    display: flex;
+    align-items: center;
+
+    min-height: 44px;
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    color: #345675;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.links-menu a:hover {
+    background: rgba(217, 234, 244, 0.65);
+    color: #9A7136;
+}
+
+.links-menu .link-destaque {
+    justify-content: center;
+    margin-top: 8px;
+
+    background: #D9EAF4;
+    border: 1px solid rgba(139, 185, 213, 0.5);
+    border-radius: 100px;
+
+    color: #345675;
+    text-align: center;
+}
+
+.links-menu .link-destaque:hover {
+    background: #C1DEEE;
+    color: #345675;
+}
+
+/* ==========================================
+   CORREÇÃO DO MENU FLUTUANTE
+========================================== */
+
+.cabecalho {
+    position: fixed;
+    top: 24px;
+    right: 30px;
+    left: auto;
+    width: auto;
+    padding: 0;
+    z-index: 9999;
+}
+
+.menu-vidro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    width: auto;
+    min-width: 190px;
+    padding: 13px 16px 13px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    background: rgba(18, 30, 49, 0.65);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.botao-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+
+    cursor: pointer;
+}
+
+.botao-menu span {
+    display: block;
+    width: 17px;
+    height: 2px;
+    border-radius: 4px;
+    background: #FFFFFF;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Transformação do ícone em X */
+
+.botao-menu[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.botao-menu[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.botao-menu[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Painel inicialmente fechado */
+
+.menu-vidro .links-menu {
+    display: none;
+
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    left: auto;
+
+    width: 265px;
+    max-width: calc(100vw - 30px);
+    padding: 16px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+
+    background: rgba(25, 47, 67, 0.96);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+/* Painel aberto */
+
+.menu-vidro .links-menu.aberto {
+    display: flex;
+}
+
+.menu-vidro .links-menu a {
+    display: block;
+    padding: 12px 14px;
+
+    color: #FFFFFF;
+    font-size: 13px;
+    border-radius: 10px;
+    text-decoration: none;
+
+    transition: background 0.25s ease;
+}
+
+.menu-vidro .links-menu a:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Destaque */
+
+.menu-vidro .links-menu .link-destaque {
+    margin-top: 8px;
+    text-align: center;
+    color: #FFFFFF;
+    background: rgba(212, 172, 103, 0.25);
+    border: 1px solid rgba(212, 172, 103, 0.5);
+}
+
+/* Celular */
+
+@media (max-width: 768px) {
+    .cabecalho {
+        top: 15px;
+        right: 15px;
+    }
+
+    .menu-vidro {
+        min-width: 165px;
+        padding: 10px 12px 10px 16px;
+        gap: 12px;
+    }
+
+    .botao-menu {
+        width: 34px;
+        height: 34px;
+    }
+
+    .menu-vidro .links-menu {
+        width: min(265px, calc(100vw - 30px));
+    }
+}
+
+/* ==========================================
+   EJC GOIANA - GLASSMORPHISM PREMIUM
+   RESTAURAÇÃO DO EFEITO DE VIDRO
+========================================== */
+
+/* MENU FLUTUANTE */
+
+.cabecalho .menu-vidro {
+    background: rgba(255, 255, 255, 0.09);
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* BRILHO AO PASSAR O MOUSE */
+
+.cabecalho .menu-vidro:hover {
+    background: rgba(255, 255, 255, 0.14);
+
+    border-color: rgba(255, 255, 255, 0.45);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.30);
+}
+
+/* BOTÃO HAMBÚRGUER */
+
+.cabecalho .botao-menu {
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.cabecalho .botao-menu:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* PAINEL EXPANDIDO */
+
+.cabecalho .menu-vidro .links-menu {
+    background: rgba(18, 30, 49, 0.52);
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+
+    backdrop-filter: blur(30px) saturate(170%);
+    -webkit-backdrop-filter: blur(30px) saturate(170%);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* MANTER O MENU FUNCIONAL */
+
+.cabecalho .menu-vidro .links-menu.aberto {
+    display: flex;
+}
+
+/* ==========================================
+   CORREÇÃO DA COR DO LOGO NO MENU
+========================================== */
+
+.cabecalho .menu-vidro .logo,
+.cabecalho .menu-vidro .logo span,
+.cabecalho .menu-vidro .logo strong {
+    color: #FFFFFF !important;
+    opacity: 1;
+}
+
+/* Destaque dourado em GOIANA */
+.cabecalho .menu-vidro .logo strong {
+    color: #E5C78F !important;
+    font-weight: 600;
+}
+
+/* Melhor legibilidade sobre o vidro */
+.cabecalho .menu-vidro .logo {
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}

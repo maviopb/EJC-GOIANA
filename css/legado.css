@@ -1,0 +1,301 @@
+
+/* ==========================================
+   BLOCO 06 - O QUE PERMANECE
+   EJC GOIANA
+========================================== */
+
+.legado-secao {
+    --legado-azul: #345675;
+    --legado-dourado: #A78040;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 100vh;
+    padding: 130px 24px 120px;
+
+    background: linear-gradient(
+        180deg,
+        #F4F9FC 0%,
+        #E4F0F8 48%,
+        #F9FCFE 100%
+    );
+
+    color: var(--legado-azul);
+}
+
+/* ILUMINAÇÃO */
+
+.legado-luz {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at var(--luz-x, 50%) var(--luz-y, 45%),
+            rgba(218, 183, 119, 0.20),
+            transparent 45%
+        );
+
+    transition: background 0.2s ease;
+}
+
+/* PARTÍCULAS */
+
+.legado-particulas {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.legado-particula {
+    position: absolute;
+    display: block;
+
+    width: var(--tamanho, 4px);
+    height: var(--tamanho, 4px);
+
+    border-radius: 50%;
+
+    background: rgba(183, 146, 79, 0.65);
+
+    box-shadow:
+        0 0 14px rgba(212, 172, 103, 0.55);
+
+    animation: legadoFlutuar
+        var(--duracao, 12s)
+        ease-in-out infinite alternate;
+}
+
+@keyframes legadoFlutuar {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.25;
+    }
+
+    to {
+        transform: translate3d(18px, -45px, 0);
+        opacity: 0.85;
+    }
+}
+
+/* CONTEÚDO */
+
+.legado-conteudo {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.legado-etiqueta {
+    display: block;
+    margin-bottom: 25px;
+
+    color: var(--legado-dourado);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.legado-simbolo {
+    margin-bottom: 25px;
+
+    color: #C7A66D;
+    font-size: 34px;
+    font-weight: 300;
+}
+
+/* TÍTULO */
+
+.legado-titulo {
+    margin: 0 auto 75px;
+    max-width: 850px;
+
+    font-size: clamp(38px, 5.5vw, 76px);
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: -1.8px;
+}
+
+.legado-titulo span {
+    display: block;
+    margin-top: 12px;
+
+    color: var(--legado-dourado);
+    font-style: italic;
+}
+
+/* PARÁGRAFOS */
+
+.legado-texto {
+    max-width: 710px;
+    margin: 0 auto;
+}
+
+.legado-texto p {
+    margin: 0 0 37px;
+
+    color: #58758B;
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.95;
+    font-weight: 400;
+}
+
+.legado-texto strong {
+    color: var(--legado-dourado);
+    font-weight: 600;
+}
+
+/* MENSAGEM CENTRAL */
+
+.legado-mensagem {
+    position: relative;
+    margin: 80px auto;
+    padding: 45px 20px;
+}
+
+.legado-mensagem::before,
+.legado-mensagem::after {
+    content: "";
+    display: block;
+
+    width: 90px;
+    height: 1px;
+    margin: 0 auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #C7A66D,
+        transparent
+    );
+}
+
+.legado-mensagem::before {
+    margin-bottom: 35px;
+}
+
+.legado-mensagem::after {
+    margin-top: 35px;
+}
+
+.legado-mensagem p {
+    margin: 0 0 14px;
+
+    font-size: clamp(20px, 3vw, 30px);
+    line-height: 1.5;
+}
+
+.legado-mensagem strong {
+    display: block;
+
+    color: var(--legado-dourado);
+    font-size: clamp(24px, 3.5vw, 39px);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* ENCERRAMENTO */
+
+.legado-final {
+    margin-top: 95px;
+}
+
+.legado-coracao {
+    display: block;
+    margin-bottom: 25px;
+
+    color: #B99558;
+    font-size: 55px;
+    line-height: 1;
+}
+
+.legado-final h3 {
+    margin: 0;
+
+    color: var(--legado-azul);
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.legado-final h3 span {
+    display: block;
+    color: var(--legado-dourado);
+    font-style: italic;
+}
+
+.legado-final > p {
+    margin-top: 35px;
+
+    color: #7A92A5;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+/* ANIMAÇÕES DE ENTRADA */
+
+.legado-revelar {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 1.1s ease,
+        transform 1.1s cubic-bezier(.2,.7,.2,1);
+}
+
+.legado-revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+    .legado-secao {
+        padding: 95px 22px 90px;
+    }
+
+    .legado-titulo {
+        margin-bottom: 55px;
+        letter-spacing: -0.8px;
+    }
+
+    .legado-texto p {
+        margin-bottom: 30px;
+        line-height: 1.85;
+    }
+
+    .legado-mensagem {
+        margin: 55px auto;
+        padding: 30px 0;
+    }
+
+    .legado-final {
+        margin-top: 65px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .legado-revelar {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .legado-particula {
+        animation: none;
+    }
+}
+

@@ -1,0 +1,336 @@
+
+/* ==========================================
+   EJC GOIANA - BLOCO 04
+   23 ANOS DE HISTÓRIA
+========================================== */
+
+.historia-secao {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0 95px;
+
+    background: linear-gradient(
+        180deg,
+        #F4F9FC 0%,
+        #D9EAF4 55%,
+        #F4F9FC 100%
+    );
+
+    color: #345675;
+}
+
+/* CABEÇALHO */
+
+.historia-cabecalho {
+    max-width: 850px;
+    margin: 0 auto 65px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.historia-etiqueta {
+    display: inline-block;
+    margin-bottom: 22px;
+
+    color: #9A7136;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.historia-cabecalho h2 {
+    margin: 0;
+    color: #345675;
+    font-size: clamp(40px, 6vw, 88px);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.historia-cabecalho h2 span {
+    color: #A78040;
+    font-style: italic;
+}
+
+.historia-subtitulo {
+    margin: 24px 0 0;
+    color: #345675;
+    font-size: clamp(19px, 2.5vw, 27px);
+}
+
+.historia-descricao {
+    max-width: 580px;
+    margin: 20px auto 0;
+    color: #58758B;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* GALERIA */
+
+.historia-galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    width: 100%;
+    overflow: hidden;
+
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 6%,
+        black 94%,
+        transparent 100%
+    );
+}
+
+.historia-faixa {
+    width: 100%;
+    overflow: hidden;
+}
+
+.historia-trilho {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: max-content;
+    will-change: transform;
+}
+
+/* FOTOS */
+
+.historia-foto {
+    position: relative;
+    flex: 0 0 auto;
+
+    width: clamp(190px, 22vw, 340px);
+    height: clamp(150px, 17vw, 255px);
+
+    overflow: hidden;
+    border-radius: 17px;
+
+    border: 3px solid rgba(255, 255, 255, 0.85);
+    background: #C5DCEB;
+
+    box-shadow:
+        0 10px 28px rgba(52, 86, 117, 0.13);
+
+    padding: 0;
+    cursor: pointer;
+
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.historia-foto:hover {
+    border-color: #D4AC67;
+
+    box-shadow:
+        0 16px 40px rgba(52, 86, 117, 0.23);
+}
+
+.historia-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.historia-foto:hover img {
+    transform: scale(1.06);
+}
+
+/* MOVIMENTO INFINITO */
+
+.historia-trilho {
+    --distancia: 0px;
+    --duracao: 75s;
+    animation: historiaMoverEsquerda var(--duracao) linear infinite;
+}
+
+.historia-direita .historia-trilho {
+    animation-name: historiaMoverDireita;
+}
+
+@keyframes historiaMoverEsquerda {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-1 * var(--distancia)));
+    }
+}
+
+@keyframes historiaMoverDireita {
+    from {
+        transform: translateX(calc(-1 * var(--distancia)));
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Pausa ao passar o mouse */
+
+.historia-galeria:hover .historia-trilho,
+.historia-galeria:focus-within .historia-trilho {
+    animation-play-state: paused;
+}
+
+/* RODAPÉ */
+
+.historia-rodape {
+    max-width: 900px;
+    margin: 75px auto 0;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.historia-rodape > span {
+    display: block;
+    color: #9A7136;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.historia-rodape p {
+    margin: 20px 0;
+    color: #345675;
+    font-size: clamp(21px, 3vw, 34px);
+}
+
+.historia-rodape strong {
+    color: #A78040;
+}
+
+/* LIGHTBOX */
+
+.historia-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 65px 65px;
+
+    background: rgba(14, 31, 49, 0.94);
+    backdrop-filter: blur(18px);
+}
+
+.historia-lightbox[hidden] {
+    display: none !important;
+}
+
+.historia-lightbox img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.35);
+}
+
+.historia-fechar,
+.historia-anterior,
+.historia-proxima {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.13);
+    color: white;
+
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.historia-fechar {
+    top: 22px;
+    right: 25px;
+}
+
+.historia-anterior {
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.historia-proxima {
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.historia-contador {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #F4F9FC;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+    .historia-secao {
+        padding: 80px 0 70px;
+    }
+
+    .historia-galeria {
+        gap: 12px;
+    }
+
+    .historia-trilho {
+        gap: 12px;
+    }
+
+    .historia-foto {
+        width: 220px;
+        height: 170px;
+        border-radius: 12px;
+    }
+
+    .historia-lightbox {
+        padding: 60px 48px;
+    }
+
+    .historia-anterior {
+        left: 5px;
+    }
+
+    .historia-proxima {
+        right: 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .historia-trilho {
+        animation: none !important;
+    }
+
+    .historia-faixa {
+        overflow-x: auto;
+    }
+}
