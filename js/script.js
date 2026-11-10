@@ -110,29 +110,70 @@ function esconderFrase() {
 }
 
 
-// =========================================
-// INICIAR ANIMAÇÃO
-// =========================================
+
+// ==========================================
+// INICIAR ANIMAÇÃO E VÍDEO MOBILE
+// ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Garante que o vídeo esteja sem áudio
-    video.muted = true;
+    const video = document.getElementById("videoAbertura");
 
-    // Tenta iniciar a reprodução automática
-    const reproducao = video.play();
+    if (video) {
 
-    if (reproducao !== undefined) {
+        // Reforça os atributos para celulares
+        video.muted = true;
+        video.defaultMuted = true;
+        video.setAttribute("muted", "");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "");
 
-        reproducao.catch(() => {
-            console.log(
-                "O navegador bloqueou a reprodução automática."
-            );
+        // Tenta iniciar o vídeo
+        function iniciarVideo() {
+
+            if (!video.paused) return;
+
+            const reproducao = video.play();
+
+            if (reproducao &&
+                typeof reproducao.catch === "function") {
+
+                reproducao.catch(() => {
+                    console.log(
+                        "Reprodução automática bloqueada pelo navegador."
+                    );
+                });
+
+            }
+        }
+
+        iniciarVideo();
+
+        // Tenta novamente quando a aba fica visível
+        document.addEventListener("visibilitychange", () => {
+
+            if (!document.hidden) {
+                iniciarVideo();
+            }
+
         });
+
+        // Interação do visitante pode liberar reprodução
+        document.addEventListener(
+            "touchstart",
+            iniciarVideo,
+            { once: true, passive: true }
+        );
+
+        document.addEventListener(
+            "click",
+            iniciarVideo,
+            { once: true }
+        );
 
     }
 
-    // Inicia as frases
+    // Mantém as frases cinematográficas
     mostrarFrase();
 
 });
