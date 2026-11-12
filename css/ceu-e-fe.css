@@ -998,3 +998,55 @@ body {
     }
 
 }
+
+/* ==========================================
+   EJC GOIANA - MENU MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        left: auto;
+
+        width: auto;
+        padding: 0;
+
+        z-index: 9999;
+    }
+
+    .cabecalho .menu-vidro {
+        min-width: 0;
+        width: auto;
+
+        padding: 8px 10px 8px 15px;
+        gap: 12px;
+
+        border-radius: 50px;
+
+        background: rgba(35, 68, 94, 0.45);
+
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+    }
+
+    .cabecalho .botao-menu {
+        width: 34px;
+        height: 34px;
+    }
+
+    .cabecalho .menu-vidro .links-menu {
+        right: 0;
+        left: auto;
+
+        width: min(265px, calc(100vw - 24px));
+    }
+
+    /* Espaço para navegação entre seções */
+
+    section[id] {
+        scroll-margin-top: 90px;
+    }
+}
