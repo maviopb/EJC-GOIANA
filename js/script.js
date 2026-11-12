@@ -22,22 +22,23 @@ const video = document.getElementById("videoAbertura");
 // FRASES DA ABERTURA
 // =========================================
 
+
+
 const frases = [
     {
-        principal: "Tudo começa numa sexta-feira...",
+        principal: "Tudo começa numa sexta-feira à noite...",
         secundaria: "E algumas experiências permanecem para sempre."
     },
-
     {
         principal: "Existem encontros que mudam histórias.",
         secundaria: "Momentos que palavras não conseguem explicar."
     },
-
     {
         principal: "E talvez a próxima história seja a sua.",
         secundaria: "Encontro de Jovens com Cristo • Goiana"
     }
 ];
+
 
 
 // =========================================

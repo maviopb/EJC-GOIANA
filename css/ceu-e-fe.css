@@ -904,3 +904,97 @@ body {
 .cabecalho .menu-vidro .logo {
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }
+
+/* ==========================================
+   EJC GOIANA - ABERTURA CINEMATOGRÁFICA
+   DESTAQUE DAS TRÊS FRASES
+========================================== */
+
+/* TÍTULO PRINCIPAL */
+
+#frasePrincipal {
+    max-width: 1050px;
+    margin: 0 auto 22px;
+
+    color: #FFFFFF !important;
+
+    font-size: clamp(38px, 5.4vw, 78px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -2px;
+    text-align: center;
+
+    text-wrap: balance;
+
+    text-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.55),
+        0 12px 35px rgba(0, 0, 0, 0.35);
+
+    -webkit-font-smoothing: antialiased;
+}
+
+/* FRASE SECUNDÁRIA */
+
+#fraseSecundaria {
+    max-width: 750px;
+    margin: 0 auto;
+
+    color: #F4F9FC !important;
+
+    font-size: clamp(15px, 1.6vw, 21px);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.3px;
+    text-align: center;
+
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.65);
+}
+
+/* MELHORA O CONTRASTE DO VÍDEO
+   SEM ALTERAR O ARQUIVO ORIGINAL */
+
+.abertura::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(8, 22, 42, 0.20) 0%,
+        rgba(8, 22, 42, 0.38) 40%,
+        rgba(8, 22, 42, 0.48) 70%,
+        rgba(8, 22, 42, 0.20) 100%
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* GARANTE QUE O CONTEÚDO
+   FIQUE ACIMA DA CAMADA ESCURA */
+
+.abertura .conteudo-abertura {
+    position: relative;
+    z-index: 2;
+}
+
+/* AJUSTES PARA CELULAR */
+
+@media (max-width: 768px) {
+
+    #frasePrincipal {
+        max-width: 95%;
+        font-size: clamp(34px, 8.5vw, 52px);
+        font-weight: 600;
+        line-height: 1.18;
+        letter-spacing: -1px;
+    }
+
+    #fraseSecundaria {
+        max-width: 90%;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+}

@@ -1,0 +1,373 @@
+/* ==========================================
+   EJC GOIANA - EXPERIÊNCIA INTERATIVA
+========================================== */
+
+.experiencia-ejc {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 110px 6% 120px;
+
+    background: linear-gradient(
+        180deg,
+        #F4F9FC 0%,
+        #E5F1F8 55%,
+        #F4F9FC 100%
+    );
+
+    color: #345675;
+}
+
+.experiencia-luz {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: min(850px, 100%);
+    height: 550px;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(139, 185, 213, 0.20),
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+.experiencia-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+.experiencia-cabecalho {
+    max-width: 780px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.experiencia-etiqueta {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    color: #A57938;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.experiencia-cabecalho h2 {
+    margin: 0 0 22px;
+
+    color: #345675;
+    font-size: clamp(34px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.experiencia-cabecalho h2 em {
+    color: #A57938;
+    font-style: italic;
+}
+
+.experiencia-cabecalho p {
+    max-width: 620px;
+    margin: 0 auto;
+
+    color: #58758B;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* GRADE */
+
+.experiencia-grade {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* CARTA 3D */
+
+.experiencia-carta {
+    display: block;
+    position: relative;
+
+    width: 100%;
+    height: 260px;
+    padding: 0;
+
+    border: 0;
+    border-radius: 24px;
+    background: transparent;
+
+    cursor: pointer;
+    perspective: 1100px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.experiencia-interior {
+    display: block;
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(
+        0.2, 0.8, 0.2, 1
+    );
+}
+
+.experiencia-carta.virada .experiencia-interior {
+    transform: rotateY(180deg);
+}
+
+/* FRENTE E VERSO */
+
+.experiencia-frente,
+.experiencia-verso {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    padding: 24px;
+
+    border-radius: 24px;
+    overflow: hidden;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* FRENTE COLORIDA */
+
+.experiencia-frente {
+    background: var(--cor-carta);
+    color: #FFFFFF;
+
+    box-shadow:
+        0 18px 35px rgba(40, 70, 95, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.experiencia-frente::before {
+    content: "";
+    position: absolute;
+    inset: -70%;
+
+    background: linear-gradient(
+        115deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.18) 50%,
+        transparent 60%
+    );
+
+    transform: translateX(-70%) rotate(15deg);
+    transition: transform 0.9s ease;
+}
+
+.experiencia-carta:hover .experiencia-frente::before {
+    transform: translateX(70%) rotate(15deg);
+}
+
+.experiencia-simbolo {
+    position: relative;
+    z-index: 1;
+
+    font-size: 52px;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.experiencia-frente > span:last-child {
+    position: relative;
+    z-index: 1;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* VERSO */
+
+.experiencia-verso {
+    background: #FFFFFF;
+    border: 1px solid var(--cor-carta);
+    color: #345675;
+
+    transform: rotateY(180deg);
+
+    box-shadow:
+        0 18px 40px rgba(40, 70, 95, 0.10);
+}
+
+.experiencia-icone {
+    color: var(--cor-carta);
+    font-size: 42px;
+    line-height: 1;
+}
+
+.experiencia-verso strong {
+    color: #345675;
+    font-size: 21px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.experiencia-verso > span:last-child {
+    max-width: 250px;
+
+    color: #58758B;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* HOVER */
+
+@media (hover: hover) and (pointer: fine) {
+    .experiencia-carta:not(.virada):hover {
+        transform: translateY(-6px);
+    }
+}
+
+.experiencia-carta {
+    transition: transform 0.3s ease;
+}
+
+.experiencia-carta:focus-visible {
+    outline: 3px solid #345675;
+    outline-offset: 5px;
+}
+
+/* TEXTO FINAL */
+
+.experiencia-final {
+    max-width: 700px;
+    margin: 75px auto 0;
+    text-align: center;
+}
+
+.experiencia-ornamento {
+    display: block;
+    margin-bottom: 25px;
+
+    color: #A57938;
+    font-size: 25px;
+}
+
+.experiencia-final p {
+    margin: 0;
+
+    color: #58758B;
+    font-size: clamp(18px, 2.3vw, 25px);
+    line-height: 1.7;
+}
+
+.experiencia-final strong {
+    display: block;
+    color: #345675;
+    font-weight: 600;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+    .experiencia-grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .experiencia-ejc {
+        padding: 80px 20px 90px;
+    }
+
+    .experiencia-cabecalho {
+        margin-bottom: 40px;
+    }
+
+    .experiencia-cabecalho h2 {
+        font-size: clamp(32px, 9vw, 44px);
+    }
+
+    .experiencia-cabecalho p {
+        font-size: 14px;
+    }
+
+    .experiencia-grade {
+        gap: 12px;
+    }
+
+    .experiencia-carta {
+        height: 210px;
+    }
+
+    .experiencia-frente,
+    .experiencia-verso {
+        padding: 14px;
+        gap: 12px;
+        border-radius: 18px;
+    }
+
+    .experiencia-simbolo {
+        font-size: 38px;
+    }
+
+    .experiencia-frente > span:last-child {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .experiencia-verso strong {
+        font-size: 16px;
+    }
+
+    .experiencia-verso > span:last-child {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .experiencia-icone {
+        font-size: 30px;
+    }
+
+    .experiencia-final {
+        margin-top: 55px;
+    }
+}
+
+@media (max-width: 360px) {
+    .experiencia-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .experiencia-carta {
+        height: 220px;
+    }
+}
+
+/* MOVIMENTO REDUZIDO */
+
+@media (prefers-reduced-motion: reduce) {
+    .experiencia-carta,
+    .experiencia-interior,
+    .experiencia-frente::before {
+        transition: none;
+    }
+}
