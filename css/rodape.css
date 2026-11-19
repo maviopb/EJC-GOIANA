@@ -510,3 +510,79 @@
     }
 
 }
+
+/* ==========================================
+   EJC GOIANA - DETALHE DAS SEIS CORES
+========================================== */
+
+.rodape-cores {
+    width: 100%;
+    height: 6px;
+
+    background: linear-gradient(
+        to right,
+        #3274C8 0%,
+        #3274C8 16.666%,
+
+        #D74750 16.666%,
+        #D74750 33.333%,
+
+        #E7B935 33.333%,
+        #E7B935 50%,
+
+        #39956C 50%,
+        #39956C 66.666%,
+
+        #875BB8 66.666%,
+        #875BB8 83.333%,
+
+        #E88B43 83.333%,
+        #E88B43 100%
+    );
+}
+
+/* Mantém a linha discreta no celular */
+
+@media (max-width: 768px) {
+    .rodape-cores {
+        height: 4px;
+    }
+}
+/* SUBIR A LINHA DAS SEIS CORES */
+
+.rodape {
+    position: relative;
+}
+
+
+/* ==========================================
+   LINHA DAS SEIS CORES - CENTRALIZADA
+========================================== */
+
+.rodape {
+    position: relative;
+}
+
+.rodape-cores {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 65%;
+    max-width: 900px;
+    height: 5px;
+
+    border-radius: 20px;
+    z-index: 2;
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+    .rodape-cores {
+        width: 80%;
+        height: 4px;
+        top: 25px;
+    }
+}
