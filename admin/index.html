@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Administração | EJC Goiana</title>
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <header class="topo">
+    <a href="../index.html" class="marca">✦ EJC GOIANA</a>
+    <button id="sair" class="botao-secundario" hidden>
+      Sair
+    </button>
+  </header>
+
+  <main class="container">
+
+    <!-- TELA DE LOGIN -->
+    <section id="tela-login" class="cartao login">
+      <span class="etiqueta">ACESSO RESTRITO</span>
+      <h1>Painel Administrativo</h1>
+      <p>Entre para gerenciar a programação do EJC.</p>
+
+      <form id="form-login">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" required
+               autocomplete="username">
+
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" required
+               autocomplete="current-password">
+
+        <button type="submit" class="botao">
+          Entrar
+        </button>
+      </form>
+    </section>
+
+    <!-- PAINEL DE EVENTOS -->
+    <section id="painel" hidden>
+
+      <div class="cabecalho">
+        <span class="etiqueta">GESTÃO DE EVENTOS</span>
+        <h1>Nossa Agenda</h1>
+        <p>Cadastre, edite e publique os próximos encontros.</p>
+      </div>
+
+      <div class="cartao">
+        <h2 id="titulo-form">Cadastrar evento</h2>
+
+        <form id="form-evento">
+          <div class="campos">
+            <div class="campo-largo">
+              <label for="titulo">Nome do evento *</label>
+              <input id="titulo" required maxlength="120">
+            </div>
+
+            <div>
+              <label for="data">Data *</label>
+              <input id="data" type="date" required>
+            </div>
+
+            <div>
+              <label for="hora">Horário</label>
+              <input id="hora" type="time">
+            </div>
+
+            <div>
+              <label for="local">Local</label>
+              <input id="local" maxlength="180">
+            </div>
+
+            <div>
+              <label for="tipo">Categoria</label>
+              <select id="tipo">
+                <option>ENCONTRO</option>
+                <option>REUNIÃO</option>
+                <option>ESPIRITUALIDADE</option>
+                <option>FORMAÇÃO</option>
+                <option>CELEBRAÇÃO</option>
+                <option>OUTROS</option>
+              </select>
+            </div>
+
+            <div class="campo-largo">
+              <label for="descricao">Descrição</label>
+              <textarea id="descricao" rows="4"
+                        maxlength="1000"></textarea>
+            </div>
+
+            <div class="campo-largo">
+              <label for="link">Link da localização (opcional)</label>
+              <input id="link" type="url"
+                     placeholder="https://maps.google.com/...">
+            </div>
+          </div>
+
+          <label class="opcao">
+            <input id="publicado" type="checkbox" checked>
+            Publicar na agenda do site
+          </label>
+
+          <div class="acoes">
+            <button type="submit" class="botao" id="salvar">
+              Publicar evento
+            </button>
+
+            <button type="button" id="cancelar"
+                    class="botao-secundario" hidden>
+              Cancelar edição
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="cartao">
+        <h2>Eventos cadastrados</h2>
+        <div id="lista-eventos">
+          Carregando eventos...
+        </div>
+      </div>
+
+    </section>
+
+    <p id="mensagem" role="status" aria-live="polite"></p>
+
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/rodape.css">
     <link rel="stylesheet" href="css/acabamento.css">
     <link rel="stylesheet" href="css/experiencia.css">
+    <link rel="stylesheet" href="css/agenda.css">
     <script src="js/script.js" defer></script>
 </head>
 
@@ -147,6 +148,65 @@
             </div>
 
         </section>
+
+
+        <!-- ===================================== -->
+        <!-- AGENDA MENSAL - EJC GOIANA            -->
+        <!-- ===================================== -->
+
+        <section class="agenda-ejc" id="agenda">
+
+            <div class="agenda-container">
+
+                <div class="agenda-cabecalho">
+                    <span class="agenda-etiqueta">
+                        EJC GOIANA • NOSSA PROGRAMAÇÃO
+                    </span>
+
+                    <h2>Nossa <em>Agenda</em></h2>
+
+                    <p>
+                        Momentos de fé, amizade e comunhão
+                        que nos unem.
+                    </p>
+                </div>
+
+                <div class="agenda-painel">
+
+                    <div class="agenda-navegacao">
+
+                        <button type="button" id="agenda-anterior" aria-label="Mês anterior">
+                            &#10094;
+                        </button>
+
+                        <div class="agenda-mes-info">
+                            <h3 id="agenda-mes-titulo"></h3>
+                            <span>AGENDA MENSAL</span>
+                        </div>
+
+                        <button type="button" id="agenda-proximo" aria-label="Próximo mês">
+                            &#10095;
+                        </button>
+
+                    </div>
+
+                    <!-- Eventos carregados automaticamente -->
+                    <div class="agenda-lista" id="agenda-lista" aria-live="polite"></div>
+
+                    <div class="agenda-rodape">
+                        <span>
+                            Um encontro pode transformar uma história.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FIM DA AGENDA MENSAL -->
+
 
 
 
@@ -1072,6 +1132,8 @@
     <script src="js/acabamento.js" defer></script>
 
     <script src="js/experiencia.js" defer></script>
+
+    <script type="module" src="js/agenda.js"></script>
 
 
 
