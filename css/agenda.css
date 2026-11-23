@@ -504,3 +504,17 @@
         animation: none !important;
     }
 }
+/* Navegação suave até a Agenda Mensal */
+
+html {
+    scroll-behavior: smooth;
+}
+
+#agenda {
+    scroll-margin-top: 100px;
+}
+
+/* Ajusta a posição da agenda ao clicar no menu */
+#agenda {
+    scroll-margin-top: 110px;
+}
