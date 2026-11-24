@@ -1,0 +1,603 @@
+
+/* =========================================
+   EJC GOIANA — JARDIM DAS MEMÓRIAS
+   ========================================= */
+
+.jardim-ejc {
+    --jardim-azul: #345675;
+    --jardim-dourado: #b08a4a;
+    --jardim-texto: #58758b;
+
+    position: relative;
+    padding: 85px 0 90px;
+    background: transparent;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* CABEÇALHO */
+
+.jardim-cabecalho {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.jardim-etiqueta {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--jardim-dourado);
+}
+
+.jardim-cabecalho h2 {
+    font-size: clamp(34px, 5.2vw, 76px);
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--jardim-azul);
+    margin: 24px 0 18px;
+}
+
+.jardim-cabecalho h2 em {
+    color: var(--jardim-dourado);
+    font-weight: 600;
+}
+
+.jardim-cabecalho p {
+    font-size: 16px;
+    color: var(--jardim-texto);
+}
+
+/* CENÁRIO */
+
+.jardim-cenario {
+    position: relative;
+    width: min(100%, 1500px);
+    height: 440px;
+    margin: 25px auto 0;
+    isolation: isolate;
+}
+
+.jardim-flores {
+    position: absolute;
+    inset: 0 3% 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 3;
+}
+
+/* BASE DO JARDIM */
+
+.jardim-solo {
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    right: 3%;
+    height: 100px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(120, 163, 131, .22),
+        rgba(164, 190, 170, .08) 45%,
+        transparent 72%
+    );
+
+    filter: blur(12px);
+    z-index: 1;
+}
+
+/* CADA FLOR */
+
+.jardim-flor {
+    position: relative;
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    height: var(--altura-flor);
+
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
+    transform-origin: bottom center;
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+/* Crescimento progressivo */
+
+.jardim-ejc.jardim-visivel .jardim-flor {
+    animation: jardim-crescer 1.8s
+        cubic-bezier(.2,.7,.3,1)
+        var(--atraso-flor) forwards;
+}
+
+@keyframes jardim-crescer {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* SVG */
+
+.jardim-flor svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: block;
+    filter: drop-shadow(0 8px 6px rgba(52,86,117,.08));
+}
+
+/* Movimento natural de brisa */
+
+.jardim-corpo-flor {
+    transform-origin: 50% 100%;
+    transform-box: view-box;
+
+    animation: jardim-brisa
+        var(--tempo-brisa)
+        ease-in-out infinite alternate;
+
+    animation-delay: var(--atraso-flor);
+}
+
+@keyframes jardim-brisa {
+    from {
+        transform: rotate(-2deg);
+    }
+
+    to {
+        transform: rotate(2deg);
+    }
+}
+
+/* FLORESCIMENTO */
+
+.jardim-petalas {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+}
+
+.jardim-ejc.jardim-visivel .jardim-petalas {
+    animation: jardim-desabrochar 1.5s
+        cubic-bezier(.2,.8,.3,1)
+        calc(var(--atraso-flor) + 1s)
+        forwards;
+}
+
+@keyframes jardim-desabrochar {
+    0% {
+        transform: scale(0) rotate(-35deg);
+    }
+
+    70% {
+        transform: scale(1.08) rotate(3deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* INTERAÇÃO */
+
+.jardim-cabeca {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform .5s ease, filter .5s ease;
+}
+
+.jardim-flor:hover .jardim-cabeca,
+.jardim-flor.jardim-ativa .jardim-cabeca {
+    transform: scale(1.12);
+
+    filter: drop-shadow(
+        0 0 12px var(--cor-flor)
+    );
+}
+
+.jardim-flor:focus-visible {
+    outline: 2px solid var(--jardim-dourado);
+    outline-offset: 4px;
+    border-radius: 20px;
+}
+
+/* ANO DE CADA FLOR */
+
+.jardim-ano-flor {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: clamp(10px, 1.2vw, 16px);
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    color: var(--jardim-azul);
+    opacity: .65;
+
+    transition: color .3s, opacity .3s;
+}
+
+.jardim-flor:hover .jardim-ano-flor,
+.jardim-flor.jardim-ativa .jardim-ano-flor {
+    color: var(--jardim-dourado);
+    opacity: 1;
+}
+
+/* PARTÍCULAS DOURADAS */
+
+.jardim-particulas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.jardim-particula {
+    position: absolute;
+    bottom: 20px;
+    left: var(--posicao);
+
+    width: var(--tamanho);
+    height: var(--tamanho);
+
+    border-radius: 50%;
+    background: #d4ac67;
+    box-shadow: 0 0 8px #d4ac67;
+
+    opacity: 0;
+
+    animation: jardim-poeira
+        var(--duracao)
+        linear infinite;
+
+    animation-delay: var(--atraso);
+}
+
+@keyframes jardim-poeira {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: .65;
+    }
+
+    75% {
+        opacity: .35;
+    }
+
+    100% {
+        transform: translate(40px, -380px);
+        opacity: 0;
+    }
+}
+
+/* INFORMAÇÕES DO ENCONTRO */
+
+.jardim-memoria {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    min-height: 160px;
+    padding: 25px 20px 10px;
+}
+
+.jardim-memoria-etiqueta {
+    color: var(--jardim-dourado);
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.jardim-memoria h3 {
+    color: var(--jardim-azul);
+    font-size: clamp(25px, 3vw, 42px);
+    margin: 12px 0 5px;
+    font-weight: 600;
+}
+
+#jardim-ano {
+    color: var(--jardim-dourado);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#jardim-data {
+    color: var(--jardim-texto);
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.jardim-memoria.jardim-revelar {
+    animation: jardim-revelar .55s ease;
+}
+
+@keyframes jardim-revelar {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.jardim-instrucao {
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--jardim-dourado);
+}
+
+/* SEMENTE DO FUTURO */
+
+.jardim-encerramento {
+    margin: 65px auto 0;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.jardim-semente {
+    width: 15px;
+    height: 23px;
+    margin: 0 auto 22px;
+
+    background: linear-gradient(
+        135deg,
+        #f5df9d,
+        #b08a4a
+    );
+
+    border-radius: 65% 35% 65% 35%;
+    transform: rotate(35deg);
+
+    box-shadow: 0 0 22px rgba(212,172,103,.6);
+    animation: jardim-semente-pulsar 3s infinite;
+}
+
+@keyframes jardim-semente-pulsar {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(212,172,103,.3);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(212,172,103,.8);
+    }
+}
+
+.jardim-encerramento p {
+    color: var(--jardim-azul);
+    font-size: clamp(19px, 2.4vw, 30px);
+    line-height: 1.6;
+}
+
+.jardim-encerramento em {
+    color: var(--jardim-dourado);
+}
+
+/* PAUSA AS ANIMAÇÕES FORA DA TELA */
+
+.jardim-ejc:not(.jardim-na-tela) .jardim-corpo-flor,
+.jardim-ejc:not(.jardim-na-tela) .jardim-particula,
+.jardim-ejc:not(.jardim-na-tela) .jardim-semente {
+    animation-play-state: paused;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .jardim-ejc {
+        padding: 65px 0;
+    }
+
+    .jardim-cabecalho h2 {
+        font-size: clamp(32px, 7vw, 48px);
+    }
+
+    .jardim-cabecalho p {
+        font-size: 13px;
+    }
+
+    .jardim-cenario {
+        height: auto;
+        margin-top: 55px;
+        padding-bottom: 20px;
+    }
+
+    .jardim-flores {
+        position: relative;
+        inset: auto;
+
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        align-items: end;
+
+        row-gap: 38px;
+        column-gap: 0;
+        padding: 0 12px;
+    }
+
+    .jardim-flor {
+        height: calc(var(--altura-flor) * .52);
+    }
+
+    .jardim-ano-flor {
+        font-size: 10px;
+        letter-spacing: 0;
+        top: -18px;
+    }
+
+    .jardim-memoria {
+        padding-top: 20px;
+    }
+
+    .jardim-encerramento {
+        margin-top: 40px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .jardim-flor,
+    .jardim-petalas {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .jardim-corpo-flor,
+    .jardim-particula,
+    .jardim-semente {
+        animation: none !important;
+    }
+}
+
+/* =========================================
+   GRAMADO NATURAL — JARDIM DAS MEMÓRIAS
+   ========================================= */
+
+.jardim-solo {
+    bottom: 5px;
+    left: 1%;
+    right: 1%;
+    height: 75px;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(139, 174, 125, .30) 0%,
+        rgba(164, 190, 151, .16) 40%,
+        transparent 75%
+    );
+
+    filter: blur(9px);
+}
+
+/* Camada de grama */
+
+.jardim-gramado {
+    position: absolute;
+    left: 3%;
+    right: 3%;
+    bottom: 22px;
+    height: 45px;
+
+    pointer-events: none;
+    z-index: 4;
+
+    mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 8%,
+        #000 92%,
+        transparent
+    );
+}
+
+/* Cada folha de grama */
+
+.jardim-grama {
+    position: absolute;
+
+    left: var(--grama-x);
+    bottom: var(--grama-y);
+
+    width: var(--grama-largura);
+    height: var(--grama-altura);
+
+    background: linear-gradient(
+        to top,
+        #789B76,
+        var(--grama-cor)
+    );
+
+    border-radius: 100% 0 100% 0;
+
+    opacity: var(--grama-opacidade);
+
+    transform-origin: bottom center;
+
+    animation: jardim-vento-grama
+        var(--grama-tempo)
+        ease-in-out infinite alternate;
+
+    animation-delay: var(--grama-atraso);
+}
+
+/* Movimento suave ao vento */
+
+@keyframes jardim-vento-grama {
+
+    from {
+        transform: rotate(-12deg);
+    }
+
+    to {
+        transform: rotate(15deg);
+    }
+
+}
+
+/* Pausa quando estiver fora da tela */
+
+.jardim-ejc:not(.jardim-na-tela) .jardim-grama {
+    animation-play-state: paused;
+}
+
+/* Celular */
+
+@media (max-width: 768px) {
+
+    .jardim-gramado {
+        bottom: 12px;
+        height: 30px;
+    }
+
+    .jardim-grama {
+        height: calc(var(--grama-altura) * .65);
+    }
+
+    .jardim-solo {
+        height: 45px;
+    }
+
+}
+
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .jardim-grama {
+        animation: none;
+    }
+
+}
+/* Navegação suave até o jardim */
+#jardim {
+    scroll-margin-top: 100px;
+}
