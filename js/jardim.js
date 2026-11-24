@@ -603,6 +603,69 @@ if (gramado) {
 
     }
 
+    // MOVIMENTO AUTOMÁTICO DO JARDIM MOBILE
+
+const mobileJardim = window.matchMedia(
+    "(max-width: 768px)"
+);
+
+const reduzirMovimentoJardim = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+);
+
+let direcaoJardim = 1;
+let pausaJardim = 0;
+let posicaoJardim = 0;
+
+flores.addEventListener("touchstart", () => {
+    pausaJardim = Infinity;
+}, { passive: true });
+
+function retomarJardim() {
+    posicaoJardim = flores.scrollLeft;
+    pausaJardim = performance.now() + 5000;
+}
+
+flores.addEventListener("touchend", retomarJardim);
+flores.addEventListener("touchcancel", retomarJardim);
+flores.addEventListener("click", retomarJardim);
+
+function moverJardim(tempo) {
+
+    if (
+        mobileJardim.matches &&
+        !reduzirMovimentoJardim.matches &&
+        !document.hidden &&
+        jardim.classList.contains("jardim-na-tela") &&
+        tempo > pausaJardim
+    ) {
+
+        const limite =
+            flores.scrollWidth - flores.clientWidth;
+
+        if (limite > 0) {
+
+            posicaoJardim += 0.35 * direcaoJardim;
+
+            if (posicaoJardim >= limite) {
+                posicaoJardim = limite;
+                direcaoJardim = -1;
+            }
+
+            if (posicaoJardim <= 0) {
+                posicaoJardim = 0;
+                direcaoJardim = 1;
+            }
+
+            flores.scrollLeft = posicaoJardim;
+        }
+    }
+
+    requestAnimationFrame(moverJardim);
+}
+
+requestAnimationFrame(moverJardim);
+
     // SELECIONA O PRIMEIRO ENCONTRO
 
     selecionarFlor(0);

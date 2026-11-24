@@ -601,3 +601,78 @@
 #jardim {
     scroll-margin-top: 100px;
 }
+
+/* JARDIM PANORÂMICO — MOBILE */
+
+@media (max-width: 768px) {
+
+    .jardim-ejc {
+        padding: 60px 0;
+    }
+
+    .jardim-cabecalho h2 {
+        font-size: clamp(28px, 7vw, 42px);
+    }
+
+    .jardim-cenario {
+        height: 310px;
+        margin-top: 30px;
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+
+    .jardim-flores {
+        position: absolute;
+        inset: 0 0 25px;
+
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        gap: 12px;
+        padding: 35px 20px 0;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+        touch-action: pan-x pan-y;
+    }
+
+    .jardim-flores::-webkit-scrollbar {
+        display: none;
+    }
+
+    .jardim-flor {
+        flex: 0 0 82px;
+        width: 82px;
+        height: calc(var(--altura-flor) * .62);
+    }
+
+    .jardim-ano-flor {
+        font-size: 12px;
+        top: -20px;
+    }
+
+    .jardim-gramado {
+        bottom: 17px;
+        height: 35px;
+        left: 0;
+        right: 0;
+    }
+
+    .jardim-solo {
+        bottom: 0;
+        height: 60px;
+    }
+
+    .jardim-memoria {
+        min-height: 140px;
+        padding: 20px 15px 10px;
+    }
+
+    .jardim-encerramento {
+        margin-top: 35px;
+    }
+}
